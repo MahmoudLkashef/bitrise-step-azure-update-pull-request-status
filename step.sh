@@ -50,7 +50,7 @@ UPDATE_PR_STATUS_URL="https://dev.azure.com/${organization_name}/${project_name}
 
 
 HTTP_STATUS=$(
-    curl -u :${azure_pat} -L -s -o response.json -w "%{http_code}" $UPDATE_PR_STATUS_URL \
+    curl -H "Authorization: Basic ${azure_pat}" -L -s -o response.json -w "%{http_code}" $UPDATE_PR_STATUS_URL \
     -H "Content-Type: application/json" \
     -d @- <<EOF
     {
