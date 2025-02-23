@@ -4,6 +4,10 @@ set -ex
 state=$devops_pr_state
 description=$devops_description
 
+echo "Debugging Bitrise Secrets..."
+env | grep BITRISE
+env | grep test_personal_access_token
+
 export azure_pat="$test_personal_access_token"
 
 echo "Azure PAT: $azure_pat"
