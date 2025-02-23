@@ -30,7 +30,7 @@ HTTP_STATUS=$(
 
 if [ $HTTP_STATUS != "200" ]; 
 then
-    echo "Error [HTTP status: $HTTP_STATUS]"
+    echo "Error1 [HTTP status: $HTTP_STATUS]"
     exit 1
 fi
 
@@ -45,7 +45,7 @@ UPDATE_PR_STATUS_URL="https://dev.azure.com/${organization_name}/${project_name}
 
 
 HTTP_STATUS=$(
-    curl -u :${azure_pat} -s -o response.json -w "%{http_code}" $UPDATE_PR_STATUS_URL \
+    curl -u :${azure_pat} -L -s -o response.json -w "%{http_code}" $UPDATE_PR_STATUS_URL \
     -H "Content-Type: application/json" \
     -d @- <<EOF
     {
@@ -62,7 +62,7 @@ EOF
 
 if [ $HTTP_STATUS != "200" ]; 
 then
-    echo "Error [HTTP status: $HTTP_STATUS]"
+    echo "Error2 [HTTP status: $HTTP_STATUS]"
     exit 1
 fi
 
