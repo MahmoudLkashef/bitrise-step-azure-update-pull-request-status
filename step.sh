@@ -50,18 +50,19 @@ UPDATE_PR_STATUS_URL="https://dev.azure.com/${organization_name}/${project_name}
 
 
 HTTP_STATUS=$(
-    curl -H "Authorization: Basic ${azure_pat}" -L -s -o response.json -w "%{http_code}" $UPDATE_PR_STATUS_URL \
-    -H "Content-Type: application/json" \
-    -d @- <<EOF
-    {
-        "state": "${state}",
-        "description": "${description}",
-        "targetUrl": "${BITRISE_BUILD_URL}",
-        "context": {
-            "name": "${context_name}",
-            "genre": "${context_genre}"
-        }
+    curl -H "Authorization: Basic ${azure_pat}" \
+         -H "Content-Type: application/json" \
+         -L -s -o response.json -w "%{http_code}" "$UPDATE_PR_STATUS_URL" \
+         -d @- <<EOF
+{
+    "state": "${state}",
+    "description": "${description}",
+    "targetUrl": "${BITRISE_BUILD_URL}",
+    "context": {
+        "name": "${context_name}",
+        "genre": "${context_genre}"
     }
+}
 EOF
 )
 
