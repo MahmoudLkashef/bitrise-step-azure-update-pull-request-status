@@ -4,9 +4,9 @@ summary: |
   Update pull request status
 description: |
   Update pull request status
-website: https://github.com/Jubaz/bitrise-step-azure-update-pull-request-status
-source_code_url: https://github.com/Jubaz/bitrise-step-azure-update-pull-request-status
-support_url: https://github.com/Jubaz/bitrise-step-azure-update-pull-request-status/issues
+website: https://github.com/MahmoudLkashef/bitrise-step-azure-update-pull-request-status
+source_code_url: https://github.com/MahmoudLkashef/bitrise-step-azure-update-pull-request-status
+support_url: https://github.com/MahmoudLkashef/bitrise-step-azure-update-pull-request-status/issues
 
 type_tags:
   - notification
@@ -25,13 +25,12 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - azure_pat: "$test_personal_access_token"
+  - azure_pat:
     opts:
       title: "Azure Personal Access Token"
       summary: "Azure Personal Access Token"
       is_expand: true
       is_required: true
-      is_sensitive: true
   - organization_name:
     opts:
       title: "Organization Name"
