@@ -4,6 +4,8 @@ set -ex
 state=$devops_pr_state
 description=$devops_description
 
+export azure_pat="$test_personal_access_token"
+
 echo "Azure PAT: $azure_pat"
 
 
