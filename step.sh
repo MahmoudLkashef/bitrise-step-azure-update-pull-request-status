@@ -24,7 +24,7 @@ ITERATIONS_URL="https://dev.azure.com/${organization_name}/${project_name}/_apis
 
 
 HTTP_STATUS=$(
-    curl -u :${azure_pat} \
+    curl -H "Authorization: Basic ${azure_pat}" \
      -H "Content-Type: application/json" \
      -L -s -o response.json -w "%{http_code}" \
 $ITERATIONS_URL 
