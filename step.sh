@@ -4,6 +4,9 @@ set -ex
 state=$devops_pr_state
 description=$devops_description
 
+echo "Azure PAT: $azure_pat"
+
+
 if [[ "$state" == "auto" ]]
 then
     state="failed"

@@ -25,7 +25,7 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - azure_pat: "$AZURE_PERSONAL_ACCESS_TOKEN"
+  - azure_pat: "$test_personal_access_token"
     opts:
       title: "Azure Personal Access Token"
       summary: "Azure Personal Access Token"
